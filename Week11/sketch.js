@@ -39,22 +39,17 @@ function draw()
     stroke(0);
     fill(0);
     createBorders(3);
-
-    // exit
-    textSize(16);
-    text("EXIT", width-50,height-50)
+    mouseCircle();
+    YouWin();
+    enemyFill();
+    exitSign();
     drawCharacter();
     characterMovement();
+    enemyMovement();  
+}
 
-
-    //enemy
-    fill(255,0,0);
-    square(squareX, squareY, 50);
-  
-    fill(0,0,255);
-    circle(circleX, circleY, 100);
-
-     //speed
+function enemyMovement(){
+       //speed
      squareXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) - 5);
      squareYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 5);
 
@@ -100,8 +95,25 @@ function draw()
     {
         circleY = height;
     }
+}
+
+function exitSign(){
+      // exit
+    textSize(16);
+    text("EXIT", width-50,height-50)
+}
+
+function enemyFill(){
+    
+    fill(255,0,0);
+    square(squareX, squareY, 50);
   
-    // You Win!
+    fill(0,0,255);
+    circle(circleX, circleY, 100);
+}
+
+function YouWin(){
+      // You Win!
     if(characterX > width && characterY > width -155 )
     {
         fill(0);
@@ -109,10 +121,6 @@ function draw()
         textSize(26);
         text("You Win!", width/2-50, height/2-50);
     }
-
-    // mouse click
-    fill(0,255,0);
-    circle(mouseShapeX, mouseShapeY, 60);
 }
 
 function characterMovement()
@@ -158,6 +166,11 @@ function createBorders(thickness)
     rect(0, height-thickness,width, thickness);
     // right border
     rect(width-thickness,0,thickness,height-50);
+}
+
+function mouseCircle(){
+      fill(0,255,0);
+    circle(mouseShapeX, mouseShapeY, 60);
 }
 
 function mouseClicked()
