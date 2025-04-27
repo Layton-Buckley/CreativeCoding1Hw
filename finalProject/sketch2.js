@@ -1,7 +1,7 @@
-var bass;
+var guitarLeft;
 var drums;
 function preload() {
-    bass = loadSound('./musicSources/guitarLeft.mp3');
+    guitarLeft = loadSound('./musicSources/guitarLeft.mp3');
     drums = loadSound('./musicSources/drums.mp3');
 }
 function setup() {
@@ -11,12 +11,20 @@ function setup() {
 }
 
 function mousePressed() {
-  if (bass.isPlaying()) {
+  if (guitarLeft.isPlaying()) {
     // .isPlaying() returns a boolean
-    bass.stop();
+    guitarLeft.stop();
     background(255, 0, 0);
   } else {
-    bass.play();
+    guitarLeft.play();
+    background(0, 255, 0);
+  }
+  if (drums.isPlaying()) {
+    // .isPlaying() returns a boolean
+    drums.stop();
+    background(255, 0, 0);
+  } else {
+    drums.play();
     background(0, 255, 0);
   }
 }
