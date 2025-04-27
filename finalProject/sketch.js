@@ -1,11 +1,5 @@
 var leftGuitar;
-var rightGuitar;
-var bassGuitar;
-var drums;
-var vocals;
-var background;
-var fft;
-var particles;
+
 
 function preload(){
 
