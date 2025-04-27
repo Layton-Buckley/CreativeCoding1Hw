@@ -10,7 +10,7 @@ function setup() {
   background(255, 0, 0);
 }
 
-<button onclick="playMusic()">Play</button>
+
 
 function playMusic() {
 const audio1 = new Audio("./musicSources/guitarLeft.mp3");
