@@ -1,8 +1,8 @@
-var song;
-
+var bass;
+var drums;
 function preload() {
-    song = loadSound('./musicSources/bass.wav');
-    song= loadSound('./musicSources/drums.wav');
+    bass = loadSound('./musicSources/bass.wav');
+    drums = loadSound('./musicSources/drums.wav');
 }
 function setup() {
 
