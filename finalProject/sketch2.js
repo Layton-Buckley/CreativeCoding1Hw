@@ -10,6 +10,17 @@ function setup() {
   background(255, 0, 0);
 }
 
+function mousePressed() {
+  if (guitarLeft.isPlaying()) {
+    // .isPlaying() returns a boolean
+    guitarLeft.stop();
+    background(255, 0, 0);
+  } else {
+    guitarLeft.play();
+    background(0, 255, 0);
+  }
+}
+
 function playMusic(){
   const Audio1 = new Audio(guitarLeft);
   const Audio2 = new Audio(drums);
