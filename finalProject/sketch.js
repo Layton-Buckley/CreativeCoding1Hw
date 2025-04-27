@@ -10,10 +10,7 @@ var particles;
 function preload(){
     soundFormats('.wav');
     leftGuitar = loadSound('./musicSources/guitarLeft.wav');
-    rightGuitar = loadSound('./musicSources/guitarRight.wav');
-    bassGuitar = loadSound('./musicSources/bass.wav');
-    drums = loadSound('./musicSources/drums.wav');
-    vocals = loadSound('./musicSources/vocals.wav');
+
 
 }
 
