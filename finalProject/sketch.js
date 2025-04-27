@@ -8,7 +8,7 @@ var fft;
 var particles;
 
 function preload(){
-    soundFormats('.wav');
+
     leftGuitar = loadSound('./musicSources/guitarLeft.wav');
 
 
