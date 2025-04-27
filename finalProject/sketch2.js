@@ -20,7 +20,7 @@ function mousePressed() {
     background(0, 255, 0);
   }
   const Audio1 = new Audio(guitarLeft);
-  const Audio2 = new Audio(drums);
+  const Audio2 = new Audio(guitarRight);
 
   Audio1.addEventListener("play", function(){
     Audio2.play();
