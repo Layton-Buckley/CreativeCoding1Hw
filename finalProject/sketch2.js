@@ -10,20 +10,14 @@ function setup() {
   background(255, 0, 0);
 }
 
-function mousePressed() {
-  if (guitarLeft.isPlaying()) {
-    // .isPlaying() returns a boolean
-    guitarLeft.stop();
-    background(255, 0, 0);
-  } else {
-    guitarLeft.play();
-    background(0, 255, 0);
-  }
-  const Audio1 = new Audio(guitarLeft);
-  const Audio2 = new Audio(guitarRight);
+<button onclick="playMusic()">Play</button>
 
-  Audio1.addEventListener("play", function(){
-    Audio2.play();
-  });
+function playMusic() {
+const audio1 = new Audio("./musicSources/guitarLeft.mp3");
+const audio2 = new Audio("./musicSources/guitarRight.mp3");
+
+audio1.addEventListener("play", function(){
+  audio2.play();
+});
 }
 
