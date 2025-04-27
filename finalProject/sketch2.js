@@ -16,6 +16,8 @@ function playMusic() {
 const audio1 = new Audio("./musicSources/guitarLeft.mp3");
 const audio2 = new Audio("./musicSources/guitarRight.mp3");
 
+guitarLeft.play();
+
 audio1.addEventListener("play", function(){
   audio2.play();
 });
