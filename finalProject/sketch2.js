@@ -1,8 +1,8 @@
 var bass;
 var drums;
 function preload() {
-    bass = loadSound('./musicSources/guitarLeft.wav');
-    drums = loadSound('./musicSources/drums.wav');
+    bass = loadSound('./musicSources/guitarLeft.mp3');
+    drums = loadSound('./musicSources/drums.mp3');
 }
 function setup() {
 
