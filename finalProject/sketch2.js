@@ -11,12 +11,12 @@ function setup() {
 }
 
 function mousePressed() {
-  if (song.isPlaying()) {
+  if (bass.isPlaying()) {
     // .isPlaying() returns a boolean
-    song.stop();
+    bass.stop();
     background(255, 0, 0);
   } else {
-    song.play();
+    bass.play();
     background(0, 255, 0);
   }
 }
