@@ -27,6 +27,3 @@ function mousePressed() {
   });
 }
 
-function playMusic(){
-
-}
