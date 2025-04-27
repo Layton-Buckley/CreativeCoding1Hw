@@ -2,7 +2,7 @@ var guitarLeft;
 var drums;
 function preload() {
     guitarLeft = loadSound('./musicSources/guitarLeft.mp3');
-    drums = loadSound('./musicSources/drums.mp3');
+    guitarRight = loadSound('./musicSources/guitarRight.mp3');
 }
 function setup() {
 
