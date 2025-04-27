@@ -1,7 +1,7 @@
 var bass;
 var drums;
 function preload() {
-    bass = loadSound('./musicSources/bass.wav');
+    bass = loadSound('./musicSources/guitarLeft.wav');
     drums = loadSound('./musicSources/drums.wav');
 }
 function setup() {
