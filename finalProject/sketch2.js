@@ -1,7 +1,7 @@
 var guitarLeft;
 var drums;
 function preload() {
-
+    guitarLeft = loadSound('./musicSources/guitarLeft.mp3');
     drums = loadSound('./musicSources/drums.mp3');
 }
 function setup() {
@@ -10,14 +10,11 @@ function setup() {
   background(255, 0, 0);
 }
 
-function mousePressed() {
+function playMusic(){
+  const Audio1 = new Audio(guitarLeft);
+  const Audio2 = new Audio(drums);
 
-  if (drums.isPlaying()) {
-    // .isPlaying() returns a boolean
-    drums.stop();
-    background(255, 0, 0);
-  } else {
-    drums.play();
-    background(0, 255, 0);
-  }
+  Audio1.addEventListener("play", function(){
+    Audio2.play();
+  });
 }
