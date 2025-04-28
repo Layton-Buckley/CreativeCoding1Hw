@@ -1,28 +1,26 @@
-
-let sounds = [];
+let sound;
 let playButton;
 
 function preload() {
-  sounds.push(loadSound('./musicSources/bass2.mp3', () => console.log('bass2 loaded')));
+  sound = loadSound('./musicSources/bass2.mp3');
 }
 
 function setup() {
-  createCanvas(400, 200);
-
-  // Create a play button
-  playButton = createButton('Play');
+  createCanvas(400, 400);
+  
+  playButton = createButton('Play Sound');
   playButton.position(20, 20);
-  //what the fuck
-  playButton.mousePressed(() => {
-    userStartAudio(); // FIRST, resume audio context
-    playAllSounds();  // THEN play
-  });
+  playButton.mousePressed(startSound);
 }
 
-function playAllSounds() {
-  for (let s of sounds) {
-    if (s.isLoaded()) {
-      s.play();
+function startSound() {
+  console.log('Button pressed!');
+  userStartAudio().then(() => {
+    console.log('AudioContext started!');
+    if (sound.isLoaded()) {
+      sound.play();
+    } else {
+      console.log('Sound not loaded yet.');
     }
-  }
+  });
 }
