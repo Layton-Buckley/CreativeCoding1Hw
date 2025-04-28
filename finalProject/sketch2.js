@@ -2,7 +2,7 @@ let sounds = [];
 let playButton;
 
 function preload() {
-  sounds.push(loadSound('./musicSources/bass2.mp3', 
+  sounds.push(loadSound('./musicSources/bass.mp3', 
     () => console.log('Sound loaded successfully!'),
     (err) => console.error('Sound failed to load!', err)
   ));
