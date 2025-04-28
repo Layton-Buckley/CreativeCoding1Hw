@@ -3,11 +3,11 @@ let sounds = [];
 let playButton;
 
 function preload() {
-  sounds.push(loadSound('musicSources/bass.mp3'));
-  sounds.push(loadSound('musicSources/drums.mp3'));
-  sounds.push(loadSound('musicSources/guitarLeft.mp3'));
-  sounds.push(loadSound('musicSources/guitarRight.mp3'));
-  sounds.push(loadSound('musicSources/vocals.mp3'));
+  sounds.push(loadSound('musicSources/bass2.mp3'));
+  sounds.push(loadSound('musicSources/drums2.mp3'));
+  sounds.push(loadSound('musicSources/guitarLeft2.mp3'));
+  sounds.push(loadSound('musicSources/guitarRight2.mp3'));
+  sounds.push(loadSound('musicSources/vocals2.mp3'));
 }
 
 function setup() {
