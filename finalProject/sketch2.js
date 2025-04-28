@@ -18,6 +18,7 @@ function setup() {
 
 function playAllSounds() {
   // Play all sounds if they are loaded
+  userStartAudio();
   for (let s of sounds) {
     if (s.isLoaded()) {
       s.play();
