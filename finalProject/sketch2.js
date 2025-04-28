@@ -4,10 +4,7 @@ let playButton;
 
 function preload() {
   sounds.push(loadSound('./musicSources/bass2.mp3', () => console.log('bass2 loaded')));
-  sounds.push(loadSound('./musicSources/drums2.mp3', () => console.log('drums2 loaded')));
-  sounds.push(loadSound('./musicSources/guitarLeft2.mp3', () => console.log('guitarLeft2 loaded')));
-  sounds.push(loadSound('./musicSources/guitarRight2.mp3', () => console.log('guitarRight2 loaded')));
-  sounds.push(loadSound('./musicSources/vocals2.mp3', () => console.log('vocals2 loaded')));
+
 }
 
 function setup() {
