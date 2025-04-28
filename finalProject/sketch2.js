@@ -14,7 +14,7 @@ function setup() {
   createCanvas(400, 200);
 
   // Create a play button
-  playButton = createButton('Play All Sounds');
+  playButton = createButton('Play');
   playButton.position(20, 20);
   playButton.mousePressed(playAllSounds);
 }
