@@ -3,8 +3,12 @@ let playButton;
 
 function preload() {
   sounds.push(loadSound('./musicSources/bass.mp3', 
-    () => console.log('Sound loaded successfully!'),
-    (err) => console.error('Sound failed to load!', err)
+    () => console.log('bass loaded successfully!'),
+    (err) => console.error('bass failed to load!', err)
+  ));
+  sounds.push(loadSound('./musicSources/drums.mp3', 
+    () => console.log('drums loaded successfully!'),
+    (err) => console.error('drums failed to load!', err)
   ));
 }
 //fuvk
