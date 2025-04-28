@@ -7,7 +7,7 @@ function preload() {
     (err) => console.error('Sound failed to load!', err)
   ));
 }
-
+//fuvk
 function setup() {
   createCanvas(400, 200);
 
