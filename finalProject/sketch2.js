@@ -1,8 +1,8 @@
-let sound;
-let button;
+let sounds = [];
+let playButton;
 
 function preload() {
-  sound = loadSound('./musicSources/bass2.mp3'); // Make sure this file is in the same folder!
+  sounds.push(loadSound('./musicSources/bass2.mp3', () => console.log('bass2 loaded')));
 }
 
 function setup() {
@@ -14,7 +14,7 @@ function setup() {
     console.log('Button pressed');
     userStartAudio().then(() => {
       console.log('AudioContext started');
-      sound.play();
+      sounds.play();
     });
   });
 }
