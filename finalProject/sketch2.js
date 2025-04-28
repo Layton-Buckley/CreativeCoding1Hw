@@ -12,7 +12,7 @@ function setup() {
   // Create a play button
   playButton = createButton('Play');
   playButton.position(20, 20);
-  
+  //what the fuck
   playButton.mousePressed(() => {
     userStartAudio(); // FIRST, resume audio context
     playAllSounds();  // THEN play
