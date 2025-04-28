@@ -2,7 +2,7 @@ let sounds = [];
 let playButton;
 
 function preload() {
-  sounds.push(loadSound('./musicSources/bass2.mp3', () => console.log('bass2 loaded')));
+  sounds.push(loadSound('./musicSources/bass.mp3', () => console.log('bass2 loaded')));
 }
 
 function setup() {
