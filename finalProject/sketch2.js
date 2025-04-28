@@ -23,7 +23,7 @@ function preload() {
     (err) => console.error('vocals failed to load!', err)
   ));
 }
-//swag
+//swa
 function setup() {
   createCanvas(400, 200);
 
