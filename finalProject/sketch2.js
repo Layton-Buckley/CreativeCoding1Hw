@@ -11,7 +11,7 @@ function preload() {
     (err) => console.error('drums failed to load!', err)
   ));
 }
-//fuck
+//fuc
 function setup() {
   createCanvas(400, 200);
 
