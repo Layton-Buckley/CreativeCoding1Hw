@@ -2,23 +2,23 @@ let sounds = [];
 let playButton;
 
 function preload() {
-  sounds.push(loadSound('./musicSources/bass.mp3', 
+  sounds.push(loadSound('./musicSources/basswav.wav', 
     () => console.log('bass loaded successfully!'),
     (err) => console.error('bass failed to load!', err)
   ));
-  sounds.push(loadSound('./musicSources/drums.mp3', 
+  sounds.push(loadSound('./musicSources/drumswav.wav', 
     () => console.log('drums loaded successfully!'),
     (err) => console.error('drums failed to load!', err)
   ));
-  sounds.push(loadSound('./musicSources/guitarLeft.mp3', 
+  sounds.push(loadSound('./musicSources/guitarLeftwav.wav', 
     () => console.log('left loaded successfully!'),
     (err) => console.error('left failed to load!', err)
   ));
-  sounds.push(loadSound('./musicSources/guitarRight.mp3', 
+  sounds.push(loadSound('./musicSources/guitarRightwav.wav', 
     () => console.log('right loaded successfully!'),
     (err) => console.error('right failed to load!', err)
   ));
-  sounds.push(loadSound('./musicSources/vocals.mp3', 
+  sounds.push(loadSound('./musicSources/vocalswav.wav', 
     () => console.log('vocals loaded successfully!'),
     (err) => console.error('vocals failed to load!', err)
   ));
