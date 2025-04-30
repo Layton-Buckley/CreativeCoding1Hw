@@ -29,7 +29,7 @@ function setup() {
   background (211)
 
   playButton = createButton('Play');
-  playButton.position(20, 20);
+  playButton.position(width / 2 -30, 20);
 
   playButton.mousePressed(() => {
     console.log('Play button clicked');
@@ -39,13 +39,20 @@ function setup() {
     });
   });
 
+  push();
+  translate(width / 2, height / 2);
   drawGuitarLeft();
   drawGuitarRight();
   drawBass();
   drawDrumSet();
   drawMicrophone();
+  pop();
 
+}
 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  redraw();
 }
 
 function playAllSounds() {
