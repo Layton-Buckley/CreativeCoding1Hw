@@ -87,6 +87,9 @@ function drawGuitarLeft() {
     vertex(20, -180);
     vertex(10, -150);
     endShape(CLOSE);
+
+     //Bridge
+    line(-15, 120, 20, 120);
   }
 
   function drawGuitarRight() {
@@ -122,7 +125,10 @@ function drawGuitarLeft() {
     vertex(20, -180);
     vertex(10, -150);
     endShape(CLOSE);
-  }
+
+    //Bridge
+    line(-15, 120, 20, 120);
+    }
 
   function drawBass() {
     
@@ -158,6 +164,9 @@ function drawGuitarLeft() {
     vertex(20, -180);
     vertex(10, -150);
     endShape(CLOSE);
+
+    //Bridge
+    line(-15, 120, 20, 120);
   }
 
     function drawDrumSet() {
