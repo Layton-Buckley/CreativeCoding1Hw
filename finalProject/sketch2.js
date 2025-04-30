@@ -110,13 +110,10 @@ function windowResized() {
 function playAllSounds() {
   for (let s of sounds) {
     if (s.isLoaded()) {
-      if (s.isPlaying()) {
-        s.stop();
-      }
       s.play();
-      console.log('Song restarted');
+      console.log('Sound is playing');
     } else {
-      console.log('Song not loaded yet');
+      console.log('Sound not loaded yet');
     }
   }
 }
@@ -433,7 +430,7 @@ function drawGuitarLeft() {
   beginShape();
   for (let i = 0; i < wave.length; i++) {
     let angle = map(i, 0, wave.length, 0, TWO_PI);
-    let radius = 17 + wave[i] * 30; // base radius + waveform offset
+    let radius = 17 + wave[i] * 20; // base radius + waveform offset
     let x = radius * cos(angle);
     let y = radius * sin(angle);
     vertex(x, y);
