@@ -1,6 +1,31 @@
 let sounds = [];
 let playButton;
 let scaleFactor;
+var fft
+var guitarLeftwav = 
+
+function preload() {
+  sounds.push(loadSound('./musicSources/basswav.wav', 
+    () => console.log('bass loaded successfully!'),
+    (err) => console.error('bass failed to load!', err)
+  ));
+  sounds.push(loadSound('./musicSources/drumswav.wav', 
+    () => console.log('drums loaded successfully!'),
+    (err) => console.error('drums failed to load!', err)
+  ));
+  sounds.push(loadSound('./musicSources/guitarLeftwav.wav', 
+    () => console.log('left loaded successfully!'),
+    (err) => console.error('left failed to load!', err)
+  ));
+  sounds.push(loadSound('./musicSources/guitarRightwav.wav', 
+    () => console.log('right loaded successfully!'),
+    (err) => console.error('right failed to load!', err)
+  ));
+  sounds.push(loadSound('./musicSources/vocalswav.wav', 
+    () => console.log('vocals loaded successfully!'),
+    (err) => console.error('vocals failed to load!', err)
+  ));
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -222,9 +247,8 @@ function drawGuitarLeft() {
         translate(170, -80);
         stroke(0);
         strokeWeight(4);
-        line(250, 400, 250, 450); 
-        line(250, 450, 200, 470); 
-        line(250, 450, 300, 470); 
+        line(160, 370, 130, 400); 
+        line(340, 370, 370, 400); 
         
         // Snare Drum Stand
         translate(-95, 20);
@@ -239,15 +263,15 @@ function drawGuitarLeft() {
         translate(-120, -30); 
         line(550, 120, 550, 190); 
         
-        translate(170, -100);
-        fill(0);
+        translate(170, -130);
+        fill(255, 255, 255);
         rect(230, 440, 40, 10); 
         line(250, 450, 250, 470); 
       }
       function drawMicrophone() {
         push();
       
-      translate(580, 420);
+      translate(580, 450);
       scale(0.9);
         // Microphone head
         fill(100);
@@ -279,4 +303,8 @@ function drawGuitarLeft() {
         line(-30, 150, 30, 150); 
       
         pop();
+      }
+
+      function stringVisualizer(){
+
       }
