@@ -1,7 +1,7 @@
 let sounds = [];
 let playButton;
 let scaleFactor;
-//swag
+
 function preload() {
   sounds.push(loadSound('./musicSources/basswav.wav', 
     () => console.log('bass loaded successfully!'),
