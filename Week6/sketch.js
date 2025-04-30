@@ -126,7 +126,7 @@ function drawGuitarLeft() {
 
   function drawBass() {
     
-    translate(-900, 350);
+    translate(-900, 370);
     scale(1);
     fill(255, 255, 0); 
     stroke(0)
@@ -162,7 +162,7 @@ function drawGuitarLeft() {
 
     function drawDrumSet() {
         
-      translate(30, -650);
+      translate(30, -670);
       scale(1.5);
         fill(255, 0, 0); 
         ellipse(250, 350, 200, 120); 
