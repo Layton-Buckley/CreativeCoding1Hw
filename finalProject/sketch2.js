@@ -68,7 +68,7 @@ function playAllSounds() {
 
 function drawGuitarLeft() {
     
-    translate(130, 180);
+    
     fill(255, 0, 0); 
     beginShape();
     vertex(-15, 30); 
@@ -101,7 +101,7 @@ function drawGuitarLeft() {
   }
 
   function drawGuitarRight() {
-    translate(600, 2);
+    
     fill(0, 0, 255); 
     stroke(0);
     beginShape();
@@ -136,7 +136,7 @@ function drawGuitarLeft() {
 
   function drawBass() {
     
-    translate(-600, 550);
+    
     fill(255, 255, 0); 
     stroke(0)
     beginShape();
@@ -170,7 +170,7 @@ function drawGuitarLeft() {
   }
 
     function drawDrumSet() {
-        translate(170, -240);
+        
         fill(255, 0, 0); 
         ellipse(250, 350, 200, 120); 
         noFill();
@@ -209,7 +209,7 @@ function drawGuitarLeft() {
         // Cymbals (Ride)
         ellipse(550, 120, 150, 20); 
         
-        // Drum Stands
+      
       
         // Bass Drum Stand
         stroke(0);
@@ -244,8 +244,6 @@ function drawGuitarLeft() {
       }
       function drawMicrophone() {
         push();
-      
-        translate(150, -80); // Position the microphone somewhere visible
       
         // Microphone head
         fill(100); // Gray color
