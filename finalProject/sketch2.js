@@ -86,6 +86,7 @@ function draw(){
   lefGuitarStrings();
   rightGuitarStrings();
   bassStrings();
+  translate(width / 2, height / 2);
   vocalHead();
 }
 
@@ -350,94 +351,99 @@ function drawGuitarLeft() {
     }
 
     function lefGuitarStrings() {
+      push();
       let wave = guitarLeftFFT.waveform();
       stroke(255);
       noFill();
-      translate(-97, -120);
-      let lineHeight = 143;
-      let startX = width / 2 - 150; // starting x-position for first string
-      let spacing = 2; // horizontal space between strings
+      
+      translate(-467.5 * scaleFactor, -303 * scaleFactor);
+      let lineHeight = 360 * scaleFactor;
+      let startX = width / 2 - 150 * scaleFactor;
+      let spacing = 5 * scaleFactor;
     
-      for (let s = 0; s < 6; s++) { // 6 strings
+      for (let s = 0; s < 6; s++) {
         let xPos = startX + s * spacing;
-    
-        beginShape(POINTS); // Grouped draw for performance
+        beginShape(POINTS);
         for (let i = 0; i < lineHeight; i++) {
           let index = floor(map(i, 0, lineHeight, 0, wave.length));
           let y = i + height / 2 - lineHeight / 2;
-          let xOffset = wave[index] * 20; // wave intensity
-    
-          vertex(xPos + xOffset, y); // use vertex for batch drawing
+          let xOffset = wave[index] * 30 * scaleFactor;
+          vertex(xPos + xOffset, y);
         }
         endShape();
       }
-      
+      pop();
     }
+    
     function rightGuitarStrings() {
+      push();
       let wave = guitarRightFFT.waveform();
       stroke(255);
       noFill();
-      translate(467.6, 0);
-      let lineHeight = 143;
-      let startX = width / 2 - 150; // starting x-position for first string
-      let spacing = 2; // horizontal space between strings
+      translate(702.5 * scaleFactor, -300 * scaleFactor);
+      let lineHeight = 360 * scaleFactor;
+      let startX = width / 2 - 150 * scaleFactor;
+      let spacing = 5 * scaleFactor;
     
-      for (let s = 0; s < 6; s++) { // 6 strings
+      for (let s = 0; s < 6; s++) {
         let xPos = startX + s * spacing;
-    
-        beginShape(POINTS); // Grouped draw for performance
+        beginShape(POINTS);
         for (let i = 0; i < lineHeight; i++) {
           let index = floor(map(i, 0, lineHeight, 0, wave.length));
           let y = i + height / 2 - lineHeight / 2;
-          let xOffset = wave[index] * 20; // wave intensity
-    
-          vertex(xPos + xOffset, y); // use vertex for batch drawing
+          let xOffset = wave[index] * 30 * scaleFactor;
+          vertex(xPos + xOffset, y);
         }
         endShape();
       }
-      
+      pop();
     }
+    
     function bassStrings() {
+      push();
       let wave = bassFFT.waveform();
       stroke(255);
       noFill();
-      translate(-467.4, 192);
-      let lineHeight = 143;
-      let startX = width / 2 - 150; // starting x-position for first string
-      let spacing = 3.3; // horizontal space between strings
+      translate(-467.4 * scaleFactor, 173 * scaleFactor);
+      let lineHeight = 370 * scaleFactor;
+      let startX = width / 2 - 150 * scaleFactor;
+      let spacing = 8 * scaleFactor;
     
-      for (let s = 0; s < 4; s++) { // 6 strings
+      for (let s = 0; s < 4; s++) {
         let xPos = startX + s * spacing;
-    
-        beginShape(POINTS); // Grouped draw for performance
+        beginShape(POINTS);
         for (let i = 0; i < lineHeight; i++) {
           let index = floor(map(i, 0, lineHeight, 0, wave.length));
           let y = i + height / 2 - lineHeight / 2;
-          let xOffset = wave[index] * 40; // wave intensity
-    
-          vertex(xPos + xOffset, y); // use vertex for batch drawing
+          let xOffset = wave[index] * 50 * scaleFactor;
+          vertex(xPos + xOffset, y);
         }
         endShape();
       }
-      
+      pop();
     }
-    function vocalHead(){
-      let wave = vocalsFFT.waveform();
-  stroke(0);
-  noFill();
-  translate(706, 327);
-
-  beginShape();
-  for (let i = 0; i < wave.length; i++) {
-    let angle = map(i, 0, wave.length, 0, TWO_PI);
-    let radius = 17 + wave[i] * 20; // base radius + waveform offset
-    let x = radius * cos(angle);
-    let y = radius * sin(angle);
-    vertex(x, y);
-  }
-  endShape(CLOSE);
-}
     
+    function vocalHead() {
+      push();
+      let wave = vocalsFFT.waveform();
+      stroke(0);
+      noFill();
+      translate(565 * scaleFactor, 25 * scaleFactor);
+      let baseRadius = 43.5 * scaleFactor;
+      let offsetAmount = 40 * scaleFactor;
+    
+      beginShape();
+      for (let i = 0; i < wave.length; i++) {
+        let angle = map(i, 0, wave.length, 0, TWO_PI);
+        let radius = baseRadius + wave[i] * offsetAmount;
+        let x = radius * cos(angle);
+        let y = radius * sin(angle);
+        vertex(x, y);
+      }
+      endShape(CLOSE);
+      pop();
+    }
+       
 
     
     
