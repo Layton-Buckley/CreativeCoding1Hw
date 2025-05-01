@@ -443,9 +443,3 @@ function drawGuitarLeft() {
       endShape(CLOSE);
       pop();
     }
-       
-
-    
-    
-    
-    
