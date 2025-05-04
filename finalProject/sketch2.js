@@ -3,8 +3,14 @@ let playButton;
 let scaleFactor;
 let bass = './musicSources/basswav.wav';
 let bassFFT;
-let drums = './musicSources/drumswav.wav';
-let drumsFFT;
+let kick = './musicSources/kickwav.wav';
+let kickFFT;
+let HH = './musicSources/HHwav.wav';
+let hhFFT;
+let OH = './musicSources/overheadwav.wav';
+let ohFFT;
+let snare = './musicSources/snarewav.wav';
+let snareFFT;
 let guitarLeft = './musicSources/guitarLeftwav.wav';
 let guitarLeftFFT;
 let guitarRight = './musicSources/guitarRightwav.wav';
@@ -19,10 +25,29 @@ function preload() {
   );
   sounds.push(bassSound);
 
-  sounds.push(loadSound(drums, 
-    () => console.log('drums loaded successfully!'),
-    (err) => console.error('drums failed to load!', err)
-  ));
+  kickSound = loadSound(kick, 
+    () => console.log('kick loaded successfully!'),
+    (err) => console.error('kick failed to load!', err)
+  );
+  sounds.push(kickSound);
+
+  HHSound = loadSound(HH, 
+    () => console.log('HH loaded successfully!'),
+    (err) => console.error('HH failed to load!', err)
+  );
+  sounds.push(HHSound);
+
+  OHSound = loadSound(OH, 
+    () => console.log('OH loaded successfully!'),
+    (err) => console.error('OH failed to load!', err)
+  );
+  sounds.push(OHSound);
+
+  snareSound = loadSound(snare, 
+    () => console.log('snare loaded successfully!'),
+    (err) => console.error('snare failed to load!', err)
+  );
+  sounds.push(snareSound);
 
   guitarLeftSound = loadSound(guitarLeft, 
     () => console.log('left loaded successfully!'),
@@ -77,6 +102,9 @@ function audioFFTs(){
 
   vocalsFFT = new p5.FFT();
   vocalsFFT.setInput(vocalsSound);
+
+  kickFFT= new p5.FFT();
+  kickFFT.setInput(kickSound)
 
 }
 
