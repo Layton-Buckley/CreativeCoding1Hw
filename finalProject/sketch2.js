@@ -17,6 +17,7 @@ let guitarRight = './musicSources/guitarRightwav.wav';
 let guitarRightFFT;
 let vocals = './musicSources/vocalswav.wav'
 let vocalsFFT;
+let fullSong = './musicSources/cowboy in vans.mp3'
 
 function preload() {
   bassSound = loadSound(bass, 
@@ -66,6 +67,13 @@ function preload() {
     (err) => console.error('vocals failed to load!', err)
   );
   sounds.push(vocalsSound);
+
+  fullSongSound = loadSound(fullSong, 
+    () => console.log('fullSong loaded successfully!'),
+    (err) => console.error('fullSong failed to load!', err)
+  );
+  sounds.setVolume(0);
+  sounds.push(fullSongSound)
 }
 
 function setup() {
@@ -77,11 +85,16 @@ function setup() {
   playButton = createButton('Play');
   playButton.position(width / 2 -30, 20);
 
+
+
+  
+
   playButton.mousePressed(() => {
     console.log('Play button clicked');
     userStartAudio().then(() => {
       console.log('AudioContext started');
       playAllSounds();
+
       loop();
     });
   });
@@ -103,9 +116,17 @@ function audioFFTs(){
   vocalsFFT = new p5.FFT();
   vocalsFFT.setInput(vocalsSound);
 
-  kickFFT= new p5.FFT();
-  kickFFT.setInput(kickSound)
+  kickFFT = new p5.FFT();
+  kickFFT.setInput(kickSound);
 
+  hhFFT = new p5.FFT();
+  hhFFT.setInput(HHSound);
+
+  ohFFT = new p5.FFT();
+  ohFFT.setInput(OHSound);
+
+  snareFFT = new p5.FFT();
+  snareFFT.setInput(snareSound);
 }
 
 function draw(){
