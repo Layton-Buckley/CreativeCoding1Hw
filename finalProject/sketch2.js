@@ -160,7 +160,7 @@ function windowResized() {
 }
 
 function playAllSounds() {
-  let startTime = getAudioContext().currentTime + 0.1; 
+  let startTime = getAudioContext().currentTime + 1; 
   for (let s of sounds) {
     if (s.isLoaded()) {
       s.play(startTime);
