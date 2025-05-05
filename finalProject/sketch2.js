@@ -68,12 +68,6 @@ function preload() {
   );
   sounds.push(vocalsSound);
 
-  fullSongSound = loadSound(fullSong, 
-    () => console.log('fullSong loaded successfully!'),
-    (err) => console.error('fullSong failed to load!', err)
-  );
-  sounds.setVolume(0);
-  sounds.push(fullSongSound)
 }
 
 function setup() {
@@ -86,16 +80,20 @@ function setup() {
   playButton.position(width / 2 -30, 20);
 
 
-
-  
-
   playButton.mousePressed(() => {
     console.log('Play button clicked');
     userStartAudio().then(() => {
       console.log('AudioContext started');
-      playAllSounds();
-
-      loop();
+  
+      
+      for (let s of sounds) {
+        if (s.isPlaying()) {
+          s.stop(); 
+        }
+        s.play(0);
+      }
+  
+      loop(); 
     });
   });
 
@@ -137,6 +135,10 @@ function draw(){
   bassStrings();
   translate(width / 2, height / 2);
   vocalHead();
+  kickdrum();
+  snaredrum();
+  HHcymbals();
+  OHcymbals();
 }
 
 function drawAllInstruments(){
@@ -158,15 +160,17 @@ function windowResized() {
 }
 
 function playAllSounds() {
+  let startTime = getAudioContext().currentTime + 0.1; 
   for (let s of sounds) {
     if (s.isLoaded()) {
-      s.play();
-      console.log('Sound is playing');
+      s.play(startTime);
+      console.log('Scheduled sound to play at', startTime);
     } else {
       console.log('Sound not loaded yet');
     }
   }
 }
+
 
 
 function drawGuitarLeft() {
@@ -487,6 +491,110 @@ function drawGuitarLeft() {
         let radius = baseRadius + wave[i] * offsetAmount;
         let x = radius * cos(angle);
         let y = radius * sin(angle);
+        vertex(x, y);
+      }
+      endShape(CLOSE);
+      pop();
+    }
+
+    function kickdrum() {
+      push();
+      let wave = kickFFT.waveform();
+      stroke(255, 0, 0);
+      strokeWeight(2);
+      noFill();
+      translate(-80 * scaleFactor, 11 * scaleFactor);
+    
+      let baseRadiusX = 185 * scaleFactor; 
+      let baseRadiusY = 107 * scaleFactor; 
+      let offsetAmountX = 300 * scaleFactor;
+      let offsetAmountY = 300 * scaleFactor;
+    
+      beginShape();
+      for (let i = 0; i < wave.length; i++) {
+        let angle = map(i, 0, wave.length, 0, TWO_PI);
+        let radiusX = baseRadiusX + wave[i] * offsetAmountX;
+        let radiusY = baseRadiusY + wave[i] * offsetAmountY;
+        let x = radiusX * cos(angle);
+        let y = radiusY * sin(angle);
+        vertex(x, y);
+      }
+      endShape(CLOSE);
+      pop();
+    }
+
+    function snaredrum() {
+      push();
+      let wave = snareFFT.waveform();
+      stroke(0, 0, 255);
+      strokeWeight(2);
+      noFill();
+      translate(225 * scaleFactor, -47 * scaleFactor);
+    
+      let baseRadiusX = 106 * scaleFactor; 
+      let baseRadiusY = 57 * scaleFactor; 
+      let offsetAmountX = 300 * scaleFactor;
+      let offsetAmountY = 300 * scaleFactor;
+    
+      beginShape();
+      for (let i = 0; i < wave.length; i++) {
+        let angle = map(i, 0, wave.length, 0, TWO_PI);
+        let radiusX = baseRadiusX + wave[i] * offsetAmountX;
+        let radiusY = baseRadiusY + wave[i] * offsetAmountY;
+        let x = radiusX * cos(angle);
+        let y = radiusY * sin(angle);
+        vertex(x, y);
+      }
+      endShape(CLOSE);
+      pop();
+    }
+
+    function HHcymbals() {
+      push();
+      let wave = hhFFT.waveform();
+      stroke(255, 215, 0);
+      strokeWeight(2);
+      noFill();
+      translate(178 * scaleFactor, -260 * scaleFactor);
+    
+      let baseRadiusX = 135 * scaleFactor; 
+      let baseRadiusY = 13 * scaleFactor; 
+      let offsetAmountX = 300 * scaleFactor;
+      let offsetAmountY = 300 * scaleFactor;
+    
+      beginShape();
+      for (let i = 0; i < wave.length; i++) {
+        let angle = map(i, 0, wave.length, 0, TWO_PI);
+        let radiusX = baseRadiusX + wave[i] * offsetAmountX;
+        let radiusY = baseRadiusY + wave[i] * offsetAmountY;
+        let x = radiusX * cos(angle);
+        let y = radiusY * sin(angle);
+        vertex(x, y);
+      }
+      endShape(CLOSE);
+      pop();
+    }
+
+    function OHcymbals() {
+      push();
+      let wave = ohFFT.waveform();
+      stroke(255, 215, 0);
+      strokeWeight(2);
+      noFill();
+      translate(-277 * scaleFactor, -260 * scaleFactor);
+    
+      let baseRadiusX = 135 * scaleFactor; 
+      let baseRadiusY = 13 * scaleFactor; 
+      let offsetAmountX = 300 * scaleFactor;
+      let offsetAmountY = 300 * scaleFactor;
+    
+      beginShape();
+      for (let i = 0; i < wave.length; i++) {
+        let angle = map(i, 0, wave.length, 0, TWO_PI);
+        let radiusX = baseRadiusX + wave[i] * offsetAmountX;
+        let radiusY = baseRadiusY + wave[i] * offsetAmountY;
+        let x = radiusX * cos(angle);
+        let y = radiusY * sin(angle);
         vertex(x, y);
       }
       endShape(CLOSE);
